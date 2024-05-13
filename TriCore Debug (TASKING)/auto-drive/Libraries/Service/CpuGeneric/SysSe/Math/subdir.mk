@@ -1,0 +1,218 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.c \
+../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.c 
+
+COMPILED_SRCS += \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.src \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.src 
+
+C_DEPS += \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.d \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.d 
+
+OBJS += \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.o \
+./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/%.src: ../auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/%.c auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING C/C++ Compiler'
+	cctc -cs --dep-file="$(basename $@).d" --misrac-version=2004 -D__CPU__=tc27xd "-fC:/git_hub/auto-drive/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<" && \
+	if [ -f "$(basename $@).d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/auto-drive\/Libraries\/Service\/CpuGeneric\/SysSe\/Math\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "$(basename $@).d" > "$(basename $@).d_sed" && cp "$(basename $@).d_sed" "$(basename $@).d" && rm -f "$(basename $@).d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.o: ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.src auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: TASKING Assembler'
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+
+clean: clean-auto-2d-drive-2f-Libraries-2f-Service-2f-CpuGeneric-2f-SysSe-2f-Math
+
+clean-auto-2d-drive-2f-Libraries-2f-Service-2f-CpuGeneric-2f-SysSe-2f-Math:
+	-$(RM) ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_AngleTrkF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Cf32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Crc.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_BitReverseTable.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_FftF32_TwiddleTable.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LowPassPt1F32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32_Table.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLSincosF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutLinearF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32_Table.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_RampF32.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_BlackmanHarrisTable.src ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.d ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.o ./auto-drive/Libraries/Service/CpuGeneric/SysSe/Math/Ifx_WndF32_HannTable.src
+
+.PHONY: clean-auto-2d-drive-2f-Libraries-2f-Service-2f-CpuGeneric-2f-SysSe-2f-Math
+
