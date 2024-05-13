@@ -47,12 +47,16 @@ Libraries/iLLD/TC27D/Tricore/Stm/Std \
 Libraries/iLLD/TC27D/Tricore/_Impl \
 Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling \
 Libraries/iLLD/TC27D/Tricore/_PinMap \
+includes/app/Obstacle \
 includes/app/lpf \
 includes/app/observer \
 includes/app/pid \
 includes/app/taskScheduler \
+includes/hardware/Switch \
+includes/hardware/Ultrasonic \
 includes/hardware/encoder \
 includes/hardware/motor \
+includes/tc275/Delay \
 includes/tc275/extIrq \
 includes/tc275/gpio \
 includes/tc275/pwmHl \

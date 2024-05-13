@@ -14,12 +14,16 @@ RM := rm -rf
 -include includes/tc275/pwmHl/subdir.mk
 -include includes/tc275/gpio/subdir.mk
 -include includes/tc275/extIrq/subdir.mk
+-include includes/tc275/Delay/subdir.mk
 -include includes/hardware/motor/subdir.mk
 -include includes/hardware/encoder/subdir.mk
+-include includes/hardware/Ultrasonic/subdir.mk
+-include includes/hardware/Switch/subdir.mk
 -include includes/app/taskScheduler/subdir.mk
 -include includes/app/pid/subdir.mk
 -include includes/app/observer/subdir.mk
 -include includes/app/lpf/subdir.mk
+-include includes/app/Obstacle/subdir.mk
 -include Libraries/iLLD/TC27D/Tricore/_PinMap/subdir.mk
 -include Libraries/iLLD/TC27D/Tricore/_Lib/DataHandling/subdir.mk
 -include Libraries/iLLD/TC27D/Tricore/_Impl/subdir.mk
