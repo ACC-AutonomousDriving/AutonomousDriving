@@ -1,0 +1,75 @@
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Includes------------------------------------------------------*/
+/*********************************************************************************************************************/
+#include "encoder.h"
+#include "gpio.h"
+#include "pinSettings.h"
+
+/*********************************************************************************************************************/
+/*-------------------------------------------------Global variables--------------------------------------------------*/
+/*********************************************************************************************************************/
+sint8 g_dir_enc1 = 1;
+sint8 g_dir_enc2 = 1;
+
+float32 g_pos_enc1 = 0;
+float32 g_pos_enc2 = 0;
+
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+void initEncoder(void)
+{
+    setPinInput(PIN_ENC1_CHA);
+    setPinInput(PIN_ENC1_CHB);
+    setPinInput(PIN_ENC2_CHA);
+    setPinInput(PIN_ENC2_CHB);
+}
+
+void countEncTicks(void)
+{
+    static boolean prev_enc1_chA = FALSE;
+    static boolean prev_enc1_chB = FALSE;
+    static boolean prev_enc2_chA = FALSE;
+    static boolean prev_enc2_chB = FALSE;
+
+    boolean cur_enc1_chA = getPinState(PIN_ENC1_CHA);
+    boolean cur_enc1_chB = getPinState(PIN_ENC1_CHB);
+    static boolean cur_enc2_chA = FALSE;
+    static boolean cur_enc2_chB = FALSE;
+
+    cur_enc2_chA = getPinState(PIN_ENC2_CHA);
+    cur_enc2_chB = getPinState(PIN_ENC2_CHB);
+
+    if ((prev_enc1_chA == FALSE) && (cur_enc1_chA == TRUE))
+    {
+        g_dir_enc1 = (cur_enc1_chB == FALSE) ? 1 : -1;
+    }
+
+    if ((prev_enc2_chA == FALSE) && (cur_enc2_chA == TRUE))
+    {
+        g_dir_enc2 = (cur_enc2_chB == FALSE) ? 1 : -1;
+    }
+
+    if (prev_enc1_chA != cur_enc1_chA)
+    {
+        g_pos_enc1 += (g_dir_enc1 * RADIAN_PER_TICK);
+    }
+    if (prev_enc1_chB != cur_enc1_chB)
+    {
+        g_pos_enc1 += (g_dir_enc1 * RADIAN_PER_TICK);
+    }
+
+    if (prev_enc2_chA != cur_enc2_chA)
+    {
+        g_pos_enc2 += (g_dir_enc2 * RADIAN_PER_TICK);
+    }
+    if (prev_enc2_chB != cur_enc2_chB)
+    {
+        g_pos_enc2 += (g_dir_enc2 * RADIAN_PER_TICK);
+    }
+
+    prev_enc1_chA = cur_enc1_chA;
+    prev_enc1_chB = cur_enc1_chB;
+    prev_enc2_chA = cur_enc2_chA;
+    prev_enc2_chB = cur_enc2_chB;
+}

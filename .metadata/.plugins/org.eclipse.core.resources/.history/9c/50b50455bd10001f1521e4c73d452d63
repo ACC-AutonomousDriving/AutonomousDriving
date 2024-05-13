@@ -1,0 +1,82 @@
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Includes------------------------------------------------------*/
+/*********************************************************************************************************************/
+#include "pwmTom.h"
+#include "toutMap.h"
+#include "IfxGtm_regdef.h"
+#include "IfxGtm_cfg.h"
+#include "IfxCpu.h"
+
+/*********************************************************************************************************************/
+/*------------------------------------------------------Macros-------------------------------------------------------*/
+/*********************************************************************************************************************/
+#define TOM_PWM_PERIOD      500000
+
+/*********************************************************************************************************************/
+/*------------------------------------------------Function Prototypes------------------------------------------------*/
+/*********************************************************************************************************************/
+void initTomPwmModule(tout_t *pin, float32 duty_ratio);
+void startTomPwmModule(tout_t *pin);
+
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+void initTomPwm(tout_t *pin, float32 duty_ratio)
+{
+    boolean interruptState = IfxCpu_disableInterrupts();
+    IfxGtm_enable(&MODULE_GTM);                                     /* Enable GTM                                   */
+
+    IfxGtm_Cmu_enableClocks(&MODULE_GTM, IFXGTM_CMU_CLKEN_FXCLK);   /* Enable the FXU clock                         */
+
+    initTomPwmModule(pin, duty_ratio);
+    startTomPwmModule(pin);
+    IfxCpu_restoreInterrupts(interruptState);
+}
+
+void initTomPwmModule(tout_t *pin, float32 duty_ratio)
+{
+    boolean irq_state = IfxCpu_disableInterrupts();
+
+    Ifx_GTM_TOM *tom_SFR = &MODULE_GTM.TOM[pin->tom];
+    uint8 channel = pin->channel;
+    Ifx_GTM_TOM_TGC *tgc = (channel <= 7) ? IfxGtm_Tom_Ch_getTgcPointer(tom_SFR, 0) : IfxGtm_Tom_Ch_getTgcPointer(tom_SFR, 1);
+
+    IfxGtm_Tom_Tgc_enableChannelUpdate(tgc, channel, TRUE);
+
+    IfxGtm_Tom_Ch_setClockSource(tom_SFR, channel, IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0);
+
+    IfxGtm_Tom_Tgc_setChannelForceUpdate(tgc, channel, TRUE, TRUE);
+
+    IfxGtm_Tom_Ch_setSignalLevel(tom_SFR, channel, Ifx_ActiveState_high);
+
+    IfxGtm_PinMap_setTomTout(pin, IfxPort_OutputMode_pushPull, IfxPort_PadDriver_cmosAutomotiveSpeed1);
+
+    IfxGtm_Tom_Ch_setCompareZeroShadow(tom_SFR, channel, TOM_PWM_PERIOD);
+
+    uint16 dutyCycle = (uint16)(duty_ratio * TOM_PWM_PERIOD / 100);
+    IfxGtm_Tom_Ch_setCompareOneShadow(tom_SFR, channel, dutyCycle);
+    IfxGtm_Tom_Tgc_trigger(tgc);
+
+    IfxGtm_Tom_Tgc_enableChannel(tgc, channel, TRUE, FALSE);
+    IfxGtm_Tom_Tgc_enableChannelOutput(tgc, channel, TRUE, FALSE);
+
+    IfxCpu_restoreInterrupts(irq_state);
+}
+
+void startTomPwmModule(tout_t *pin)
+{
+    Ifx_GTM_TOM *tom_SFR = &MODULE_GTM.TOM[pin->tom];
+    uint8 channel = pin->channel;
+    Ifx_GTM_TOM_TGC *tgc = (channel <= 7) ? IfxGtm_Tom_Ch_getTgcPointer(tom_SFR, 0) : IfxGtm_Tom_Ch_getTgcPointer(tom_SFR, 1);
+
+    IfxGtm_Tom_Tgc_enableChannel(tgc, channel, TRUE, TRUE);
+    IfxGtm_Tom_Tgc_enableChannelOutput(tgc, channel, TRUE, TRUE);
+
+    /* Trigger the start now */
+    IfxGtm_Tom_Tgc_trigger(tgc);
+}
+
+void setTomPwmDutyRatio(tout_t *pin, float32 duty_ratio)
+{
+    initTomPwmModule(pin, duty_ratio);
+}

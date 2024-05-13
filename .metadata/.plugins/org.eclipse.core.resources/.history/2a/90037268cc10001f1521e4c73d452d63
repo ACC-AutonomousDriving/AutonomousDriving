@@ -1,0 +1,194 @@
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Includes------------------------------------------------------*/
+/*********************************************************************************************************************/
+#include "taskScheduler.h"
+#include "stm.h"
+#include "encoder.h"
+#include "uart.h"
+#include <stdio.h>
+#include "motor.h"
+#include "lpf.h"
+#include "pid.h"
+#include "commonMacros.h"
+#include "observer.h"
+
+/*********************************************************************************************************************/
+/*-------------------------------------------------Data Structures---------------------------------------------------*/
+/*********************************************************************************************************************/
+ typedef struct
+{
+        uint32 cnt_1ms;
+        uint32 cnt_10ms;
+        uint32 cnt_100ms;
+}TestCnt;
+
+/*********************************************************************************************************************/
+/*-------------------------------------------------Global variables--------------------------------------------------*/
+/*********************************************************************************************************************/
+TestCnt stTestCnt;
+
+float32 w_ref_1;
+float32 w_ref_lpf_1;
+float32 w_ref_lpf_prev_1;
+
+float32 w_ref_2;
+float32 w_ref_lpf_2;
+float32 w_ref_lpf_prev_2;
+
+float32 w_1;
+float32 w_lpf_1;
+float32 w_lpf_prev_1;
+
+float32 w_2;
+float32 w_lpf_2;
+float32 w_lpf_prev_2;
+
+float32 encPos_1;
+float32 prev_encPos_1;
+float32 w_err_1;
+
+float32 encPos_2;
+float32 prev_encPos_2;
+float32 w_err_2;
+
+float32 v_in_1;
+float32 v_in_2;
+
+char str[20];
+/*********************************************************************************************************************/
+/*------------------------------------------------Function Prototypes------------------------------------------------*/
+/*********************************************************************************************************************/
+static void Task1ms(void);
+static void Task10ms(void);
+static void Task100ms(void);
+
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+void appNoTask(void)
+{
+    countEncTicks();
+}
+
+static void Task1ms(void)
+{
+    static float32 w_ss_1 = -4 * PI;
+    static float32 w_ss_2 = 4 * PI;
+//
+//    if (stTestCnt.cnt_1ms < 2000 || stTestCnt.cnt_1ms >= 13000)
+//    {
+//        w_ref = 0.0;
+//    }
+//    else if (stTestCnt.cnt_1ms < 5000)
+//    {
+//        w_ref = w_ss / 3 * (stTestCnt.cnt_1ms - 2000) / 1000;
+//    }
+//    else if (stTestCnt.cnt_1ms < 10000)
+//    {
+//        w_ref =w_ss;
+//    }
+//    else if (stTestCnt.cnt_1ms < 13000)
+//    {
+//        w_ref = w_ss / 3 * (13000 - stTestCnt.cnt_1ms) / 1000;
+//    }
+
+    w_ref_1 = w_ss_1;
+    w_ref_2 = w_ss_2;
+
+    w_ref_lpf_1 = lowPassFilter(w_ref_1, w_ref_lpf_prev_1);
+    w_ref_lpf_prev_1 = w_ref_lpf_1;
+
+    w_ref_lpf_2 = lowPassFilter(w_ref_2, w_ref_lpf_prev_2);
+    w_ref_lpf_prev_2 = w_ref_lpf_2;
+
+    encPos_1 = getEncPos(ENC1);
+    w_1 = (encPos_1 - prev_encPos_1) * 1000;
+    prev_encPos_1 = encPos_1;
+
+    encPos_2 = getEncPos(ENC2);
+    w_2 = (encPos_2 - prev_encPos_2) * 1000;
+    prev_encPos_2 = encPos_2;
+
+    w_lpf_1 = lowPassFilter(w_1, w_lpf_prev_1);
+    w_lpf_prev_1 = w_lpf_1;
+
+    w_lpf_2 = lowPassFilter(w_2, w_lpf_prev_2);
+    w_lpf_prev_2 = w_lpf_2;
+
+    w_err_1 = w_ref_lpf_1 - w_lpf_1;
+    w_err_2 = w_ref_lpf_2 - w_lpf_2;
+
+    v_in_1 = -1 * pidController(MOTOR1, w_err_1, w_ref_lpf_1);
+    v_in_2 = pidController(MOTOR2, w_err_2, w_ref_lpf_2);
+
+    if (v_in_1 < 0)
+    {
+        v_in_1 = 0;
+    }
+    if (v_in_1 > 12)
+    {
+        v_in_1 = 12;
+    }
+
+    if (v_in_2 < 0)
+    {
+        v_in_2 = 0;
+    }
+    if (v_in_2 > 12)
+    {
+        v_in_2 = 12;
+    }
+//    if (stTestCnt.cnt_1ms >= 15000)
+//    {
+//        v_in = 0;
+//    }
+
+//    observeMotor(MOTOR2, v_in, encPos);
+
+    setMotorPower(v_in_1 / 12, v_in_2 / 12);
+
+    stTestCnt.cnt_1ms++;
+}
+
+static void Task10ms(void)
+{
+    stTestCnt.cnt_10ms++;
+}
+
+static void Task100ms(void)
+{
+    static float64 a1, a2, a3;
+
+    a1 = getEncPos(ENC2);
+    a3 = (a1 - a2) * 10;
+    a2 = a1;
+//    a3 = getThetaHat(MOTOR2);
+    sprintf(str, "%.1f %.1f %.1f\r\n", (float32)stTestCnt.cnt_100ms/10, w_ref_lpf_2, a3);
+    for (int i =0;i < 20; i++)
+    {
+        _out_uart3(str[i]);
+    }
+
+    stTestCnt.cnt_100ms++;
+}
+
+void taskScheduler(void)
+{
+    if(schedulingInfo.f_1ms == 1)
+    {
+        schedulingInfo.f_1ms = 0;
+        Task1ms();
+
+        if(schedulingInfo.f_10ms == 1)
+        {
+            schedulingInfo.f_10ms = 0;
+            Task10ms();
+        }
+
+        if(schedulingInfo.f_100ms == 1)
+        {
+            schedulingInfo.f_100ms = 0;
+            Task100ms();
+        }
+    }
+}
