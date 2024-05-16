@@ -7,7 +7,7 @@
 #include "taskScheduler.h"
 #include "motor.h"
 
-IfxCpu_syncEvent g_cpuSyncEvent = 0;
+IfxCpu_syncEvent g_cpuSyncEvent;
 
 void core0_main(void)
 {
